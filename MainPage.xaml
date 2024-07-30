@@ -1,0 +1,57 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="SpainQuotes.MainPage"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml">
+
+    <ContentPage.Resources>
+        <Style x:Key="QuoteLabelStyle" TargetType="Label">
+            <Setter Property="FontFamily" Value="MainFont"/>
+            <Setter Property="FontSize" Value="40"/>
+            <Setter Property="HorizontalTextAlignment" Value="Center"/>
+            <Setter Property="TextColor" Value="White"/>
+            <Setter Property="VerticalOptions" Value="Center"/>
+            <Setter Property="Padding" Value="20"/>
+        </Style>
+        <Style x:Key="GenerateQuoteButtonStyle" TargetType="Button">
+            <Setter Property="BackgroundColor" Value="#333333"/>
+            <Setter Property="TextColor" Value="White"/>
+            <Setter Property="FontSize" Value="20"/>
+            <Setter Property="CornerRadius" Value="10"/>
+            <Setter Property="Padding" Value="10,5"/>
+            <Setter Property="Margin" Value="0,10"/>
+        </Style>
+        <LinearGradientBrush x:Key="DefaultGradient" EndPoint="1,1">
+            <GradientStop Offset="0.0" Color="#051937" />
+            <GradientStop Offset="0.25" Color="#004d7a" />
+            <GradientStop Offset="0.50" Color="#008793" />
+            <GradientStop Offset="0.75" Color="#00bf72" />
+            <GradientStop Offset="1" Color="#a8eb12" />
+        </LinearGradientBrush>
+    </ContentPage.Resources>
+
+    <Grid x:Name="background">
+        <Grid.Background>
+            <StaticResource Key="DefaultGradient" />
+        </Grid.Background>
+
+        <Grid Margin="25">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*" />
+                <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
+
+            <Label
+                x:Name="quote"
+                Style="{StaticResource QuoteLabelStyle}"
+                Text="Genera una cita" />
+
+            <Button
+                x:Name="btnGenerateQuote"
+                Grid.Row="1"
+                Style="{StaticResource GenerateQuoteButtonStyle}"
+                Text="Get New Quote"
+                Clicked="btnGenerateQuote_Clicked" />
+        </Grid>
+    </Grid>
+</ContentPage>
